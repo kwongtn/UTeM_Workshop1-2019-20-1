@@ -1,0 +1,6 @@
+## Pull the latest mySQL image
+FROM mySQL:latest
+
+## Maintainer and email
+LABEL Maintainer="KwongTN <tungnan5636@gmail.com>"
+
