@@ -8,6 +8,7 @@ BIT(n);
 
 ## Boolean
 BOOLEAN = TINYINT(1)
+- Will output 0 or 1
 
 ## Char
 CHAR(0-255)
