@@ -2,11 +2,11 @@
 SET time_zone = '+08:00';
 
 -- Drop database if database exists
-DROP DATABASE IF EXISTS `TEST-DATABASE`;
-CREATE DATABASE IF NOT EXISTS `TEST-DATABASE` CHARACTER SET utf8mb4;
+DROP DATABASE IF EXISTS `CLUB-MAN`;
+CREATE DATABASE IF NOT EXISTS `CLUB-MAN` CHARACTER SET utf8mb4;
 
 -- Select database after it is created
-USE `TEST-DATABASE`;
+USE CLUB-MAN;
 
 -- Drop tables if table exists
 SET FOREIGN_KEY_CHECKS = 0;
@@ -17,88 +17,124 @@ DROP TABLE IF EXISTS `FEEDBACK`;
 DROP TABLE IF EXISTS `RSVP`;
 DROP TABLE IF EXISTS `ATTENDANCE`;
 DROP TABLE IF EXISTS `ACTIVITY`;
+DROP TABLE IF EXISTS `PERMISSIONS`;
 SET FOREIGN_KEY_CHECKS = 1;
 
 -- AUTO INCREMENT ??
 
 -- Create tables
 CREATE TABLE `USER` (
-    `userID` INT NOT NULL,
-    `signupTime` TIMESTAMP NOT NULL,
-    `engName` TEXT NOT NULL,
-    `chineseName` TEXT NOT NULL,
-    `email` TEXT NOT NULL,
-    `phoneNo` TEXT NOT NULL,
-    `facebookID` TEXT NOT NULL,
-    `icNo` TEXT NOT NULL,
-    `hostel` TEXT NOT NULL,
-    `faculty` TEXT,
-    `course` TEXT,
-    `hometown` TEXT,
-    `matricNo` TEXT NOT NULL,
-    `custPw` TEXT,
+    `userID` INT UNSIGNED AUTO_INCREMENT NOT NULL,
+    `engName` TINYTEXT NOT NULL,
+    `chineseName` TINYTEXT NOT NULL,
+    `email` TINYTEXT NOT NULL,
+    `phoneNo` TINYTEXT NOT NULL,
+    `facebookID` TINYTEXT NOT NULL,
+    `icNo` CHAR(12) NOT NULL,
+    `hostel` TINYTEXT,
+    `faculty` TINYTEXT,
+    `course` TINYTEXT,
+    `hometown` TINYTEXT,
+    `matricNo` CHAR(10) NOT NULL,
+    `custPw` TINYTEXT,
+    `signupTime` TIMESTAMP 
+        DEFAULT CURRENT_TIMESTAMP 
+        NOT NULL,
+    `updateTime` TIMESTAMP 
+        DEFAULT CURRENT_TIMESTAMP 
+        ON UPDATE CURRENT_TIMESTAMP 
+        NOT NULL,
+    `updateDue` BOOLEAN NOT NULL,
     PRIMARY KEY (`userID`),
     UNIQUE (`userID`)
 );
 
 CREATE TABLE `USER // ROLE` (
-    `roleID` SMALLINT NOT NULL,
-    `userID` INT NOT NULL,
+    `roleID` INT UNSIGNED NOT NULL,
+    `userID` INT UNSIGNED NOT NULL,
     PRIMARY KEY (`roleID`, `userID`)
 );
 
 CREATE TABLE `ROLE` (
-    `roleID` SMALLINT NOT NULL,
-    `roleName` TEXT NOT NULL,
+    `roleID` INT UNSIGNED AUTO_INCREMENT NOT NULL,
+    `roleName` TINYTEXT NOT NULL,
     PRIMARY KEY (`roleID`),
     UNIQUE (`roleID`)
 );
 
 CREATE TABLE `FEEDBACK` (
-    `feedbackID` INT NOT NULL,
-    `userID` INT,
-    `activityID` BIGINT,
+    `feedbackID` INT UNSIGNED 
+        AUTO_INCREMENT
+        NOT NULL,
+    `userID` INT UNSIGNED,
+    `activityID` BIGINT UNSIGNED,
     `isAnonymous` BOOLEAN NOT NULL,
     `feedback` TEXT,
-    `ratingOverall` SMALLINT,
-    `ratingHumans` SMALLINT,
-    `ratingSouvenir` SMALLINT,
-    `ratingLearn` SMALLINT,
-    `ratingConfidence` SMALLINT,
-    `createTime` TIMESTAMP NOT NULL,
+    `ratingOverall` TINYINT UNSIGNED,
+    `ratingHumans` TINYINT UNSIGNED,
+    `ratingSouvenir` TINYINT UNSIGNED,
+    `ratingLearn` TINYINT UNSIGNED,
+    `ratingConfidence` TINYINT UNSIGNED,
+    `createTime` TIMESTAMP 
+        DEFAULT CURRENT_TIMESTAMP 
+        NOT NULL,
     PRIMARY KEY (`feedbackID`),
     UNIQUE (`feedbackID`)
 );
 
 CREATE TABLE `RSVP` (
-    `rsvpID` BIGINT NOT NULL,
-    `userID` INT NOT NULL,
-    `activityID` BIGINT NOT NULL,
-    `createTime` TIMESTAMP NOT NULL,
+    `rsvpID` SERIAL NOT NULL,
+    `userID` INT UNSIGNED NOT NULL,
+    `activityID` BIGINT UNSIGNED NOT NULL,
+    `createTime` TIMESTAMP 
+        DEFAULT CURRENT_TIMESTAMP 
+        NOT NULL,
+    `specificInfo` JSON NOT NULL,
+    `isRevoked` BOOLEAN NOT NULL,
     PRIMARY KEY (`rsvpID`),
     UNIQUE (`rsvpID`)
 );
 
 CREATE TABLE `ATTENDANCE` (
-    `attendanceID` BIGINT NOT NULL,
-    `userID` INT NOT NULL,
-    `activityID` BIGINT NOT NULL,
-    `createTime` TIMESTAMP NOT NULL,
+    `attendanceID` SERIAL NOT NULL,
+    `userID` INT UNSIGNED NOT NULL,
+    `activityID` BIGINT UNSIGNED NOT NULL,
+    `createTime` TIMESTAMP 
+        DEFAULT CURRENT_TIMESTAMP 
+        NOT NULL,
     PRIMARY KEY (`attendanceID`),
     UNIQUE (`attendanceID`)
 );
 
 CREATE TABLE `ACTIVITY` (
-    `activityID` BIGINT NOT NULL,
-    `activityDesc` TEXT NOT NULL,
-    `activityPic` TEXT NOT NULL,
-    `userID` INT NOT NULL,
+    `activityID` SERIAL NOT NULL,
+    `activityDesc` TEXT,
+    `activityPic` TEXT,
+    `userID` INT UNSIGNED NOT NULL,
     `activityStart` DATETIME NOT NULL,
     `activityEnd` DATETIME NOT NULL,
-    `createTime` TIMESTAMP NOT NULL,
-    `activityLocation` TEXT NOT NULL,
+    `activityLocation` TEXT,
+    `createTime` TIMESTAMP 
+        DEFAULT CURRENT_TIMESTAMP
+        NOT NULL,
+    `updateTime` TIMESTAMP 
+        DEFAULT CURRENT_TIMESTAMP
+        ON UPDATE CURRENT_TIMESTAMP
+        NOT NULL,
+    `activityTag` JSON,
+    `specificInfo` JSON,
     PRIMARY KEY (`activityID`),
     UNIQUE (`activityID`)
+);
+
+CREATE TABLE `PERMISSIONS` (
+    `permissionID` INT UNSIGNED AUTO_INCREMENT NOT NULL,
+    `roleID` INT UNSIGNED,
+    `userID` INT UNSIGNED,
+    `tableName` TINYTEXT NOT NULL,
+    `attribName` TINYTEXT,
+    `permission` JSON NOT NULL,
+    PRIMARY KEY (`permissionID`)
 );
 
 -- Assigning foreign keys to tables and linking them up.
@@ -111,4 +147,5 @@ ALTER TABLE `RSVP` ADD FOREIGN KEY (`activityID`) REFERENCES `ACTIVITY`(`activit
 ALTER TABLE `ATTENDANCE` ADD FOREIGN KEY (`userID`) REFERENCES `USER`(`userID`);
 ALTER TABLE `ATTENDANCE` ADD FOREIGN KEY (`activityID`) REFERENCES `ACTIVITY`(`activityID`);
 ALTER TABLE `ACTIVITY` ADD FOREIGN KEY (`userID`) REFERENCES `USER`(`userID`);
-
+ALTER TABLE `PERMISSIONS` ADD FOREIGN KEY (`roleID`) REFERENCES `ROLE`(`roleID`);
+ALTER TABLE `PERMISSIONS` ADD FOREIGN KEY (`userID`) REFERENCES `USER`(`userID`);
