@@ -17,6 +17,7 @@ CHAR(0-255)
 ## Date, Time
 
 Select statements
+
 | Name    | Syntax | Description
 | --- | --- | ---
 | Now | NOW() | To get the current date and time
@@ -36,6 +37,7 @@ Select statements
 
 
 __Date, time function comparisons__
+
 | Description | Symbol | Sample
 | --- | --- | ---
 | Year | y | 19
@@ -109,7 +111,7 @@ ENUM('\<value1\>', '\<value2\>, '\<value3\>, ... , '\<value65,535\>')
 
 
 ## Integer
-- attrib INT AUTO_INCREMENT 
+- attrib INT [AUTO_INCREMENT] [UNSIGNED] ;
   - Auto increments the integer by one from previous if is not specified during insertion.
 - SERIAL = BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE
 
