@@ -62,7 +62,6 @@ __Date, time function comparisons__
 | | k/l | 2
 
 
-
 ### **DATE**
 - Stores YYYY-MM-DD
 - Ranges 1000-01-01 to 9999-12-31
@@ -76,7 +75,7 @@ __Date, time function comparisons__
 
 ### **DATETIME**
 - Stores YYYY-MM-DD HH:MM:SS[.fraction(6)]
-- Ranges 1000-01-01 00:00:00.000000 to 9999-12-31 23:59:59.999999
+- Ranges 1000-01-01 00:00:00[.000000] to 9999-12-31 23:59:59[.999999]
 
 ### **TIMESTAMP**
 - attrib TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -102,10 +101,12 @@ E.g. DECIMAL(6,2) = XXXX.XX
 - ZEROFILL pads values from front
 
 ## Enum
-ENUM('\<value1\>', '\<value2\>, '\<value3\>, ...)
+ENUM('\<value1\>', '\<value2\>, '\<value3\>, ... , '\<value65,535\>')
 - Values are assigned numbers according to sequence.
 - Changing enum members requires rebuilding entire table using ALTER TABLE
 - Not universally compatible
+
+
 
 ## Integer
 - attrib INT AUTO_INCREMENT 
@@ -141,3 +142,11 @@ TINYTEXT | 255 Bytes | 255
 TEXT | 64 KB | 65,535
 MEDIUMTEXT | 16 MB | 16,777,215
 LONGTEXT | 4 GB | 4,294,967,295
+
+## json
+attrib JSON ;
+
+- Just insert the whole json string in.
+- During select,
+  - SELECT \<attrib>->'$.\<key1>.<key2>.<keyN>' FROM \<table>;
+- If result is string, will return quotes. If don't want to return quotes, use "->>" instead of "->"
