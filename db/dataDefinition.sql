@@ -1,3 +1,6 @@
+-- Set timezone to GMT +08:00 (Kuala Lumpur / Singapore)
+SET time_zone = '+08:00';
+
 -- Drop database if database exists
 DROP DATABASE IF EXISTS `TEST-DATABASE`;
 CREATE DATABASE IF NOT EXISTS `TEST-DATABASE` CHARACTER SET utf8mb4;
@@ -15,6 +18,8 @@ DROP TABLE IF EXISTS `RSVP`;
 DROP TABLE IF EXISTS `ATTENDANCE`;
 DROP TABLE IF EXISTS `ACTIVITY`;
 SET FOREIGN_KEY_CHECKS = 1;
+
+-- AUTO INCREMENT ??
 
 -- Create tables
 CREATE TABLE `USER` (
@@ -53,7 +58,7 @@ CREATE TABLE `FEEDBACK` (
     `feedbackID` INT NOT NULL,
     `userID` INT,
     `activityID` BIGINT,
-    `isAnonymous` BOOL NOT NULL,
+    `isAnonymous` BOOLEAN NOT NULL,
     `feedback` TEXT,
     `ratingOverall` SMALLINT,
     `ratingHumans` SMALLINT,

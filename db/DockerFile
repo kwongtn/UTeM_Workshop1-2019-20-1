@@ -4,3 +4,6 @@ FROM mySQL:latest
 ## Maintainer and email
 LABEL Maintainer="KwongTN <tungnan5636@gmail.com>"
 
+## Set Timezone = Asia/Kuala_Lumpur
+RUN echo "Asia/Kuala_Lumpur" > /etc/timezone
+
