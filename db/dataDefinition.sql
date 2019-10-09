@@ -132,7 +132,7 @@ CREATE TABLE `PERMISSIONS` (
     `roleID` INT UNSIGNED,
     `userID` INT UNSIGNED,
     `tableName` TINYTEXT NOT NULL,
-    `attribName` TINYTEXT,
+    `fieldName` TINYTEXT,
     `permission` JSON NOT NULL,
     PRIMARY KEY (`permissionID`)
 );

@@ -3384,7 +3384,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFtlz9YBO68GIM="
 							},
-							"name": "attribName",
+							"name": "fieldName",
 							"type": "TINYTEXT",
 							"length": 0,
 							"nullable": true
