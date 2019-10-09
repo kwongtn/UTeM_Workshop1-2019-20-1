@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1145.6 796" style="enable-background:new 0 0 1145.6 796;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st2{font-family:'Arial-BoldMT';}
+	.st3{font-size:13px;}
+	.st4{font-family:'ArialMT';}
+	.st5{fill:none;stroke:#000000;stroke-miterlimit:10;stroke-dasharray:3;}
+</style>
+<rect class="st0" width="1145.6" height="796"/>
+<g transform="translate(-14,-30) scale(1,1)">
+	<rect x="96" y="72" class="st0" width="206.5" height="300"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M96,72h206.5v300H96V72z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M96,95h206.5"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M124.1,95v277"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M217.9,95v277"/>
+</g>
+<text transform="matrix(1 0 0 1 167.1748 59.5)" class="st2 st3">USER</text>
+<text transform="matrix(1 0 0 1 87 83)" class="st4 st3">PK</text>
+<text transform="matrix(1 0 0 1 115.0591 83)" class="st4 st3">userID</text>
+<text transform="matrix(1 0 0 1 208.8799 83)" class="st4 st3">INT</text>
+<text transform="matrix(1 0 0 1 115.0591 98)" class="st4 st3">engName</text>
+<text transform="matrix(1 0 0 1 208.8799 98)" class="st4 st3">TINYTEXT</text>
+<text transform="matrix(1 0 0 1 115.0591 113)" class="st4 st3">chineseName</text>
+<text transform="matrix(1 0 0 1 208.8799 113)" class="st4 st3">TINYTEXT</text>
+<text transform="matrix(1 0 0 1 115.0591 128)" class="st4 st3">email</text>
+<text transform="matrix(1 0 0 1 208.8799 128)" class="st4 st3">TINYTEXT</text>
+<text transform="matrix(1 0 0 1 115.0591 143)" class="st4 st3">phoneNo</text>
+<text transform="matrix(1 0 0 1 208.8799 143)" class="st4 st3">TINYTEXT</text>
+<text transform="matrix(1 0 0 1 115.0591 158)" class="st4 st3">facebookID</text>
+<text transform="matrix(1 0 0 1 208.8799 158)" class="st4 st3">TINYTEXT</text>
+<text transform="matrix(1 0 0 1 115.0591 173)" class="st4 st3">icNo</text>
+<text transform="matrix(1 0 0 1 208.8799 173)" class="st4 st3">CHAR(12)</text>
+<text transform="matrix(1 0 0 1 87 188)" class="st4 st3">N</text>
+<text transform="matrix(1 0 0 1 115.0591 188)" class="st4 st3">hostel</text>
+<text transform="matrix(1 0 0 1 208.8799 188)" class="st4 st3">TINYTEXT</text>
+<text transform="matrix(1 0 0 1 87 203)" class="st4 st3">N</text>
+<text transform="matrix(1 0 0 1 115.0591 203)" class="st4 st3">faculty</text>
+<text transform="matrix(1 0 0 1 208.8799 203)" class="st4 st3">TINYTEXT</text>
+<text transform="matrix(1 0 0 1 87 218)" class="st4 st3">N</text>
+<text transform="matrix(1 0 0 1 115.0591 218)" class="st4 st3">course</text>
+<text transform="matrix(1 0 0 1 208.8799 218)" class="st4 st3">TINYTEXT</text>
+<text transform="matrix(1 0 0 1 87 233)" class="st4 st3">N</text>
+<text transform="matrix(1 0 0 1 115.0591 233)" class="st4 st3">hometown</text>
+<text transform="matrix(1 0 0 1 208.8799 233)" class="st4 st3">TINYTEXT</text>
+<text transform="matrix(1 0 0 1 115.0591 248)" class="st4 st3">matricNo</text>
+<text transform="matrix(1 0 0 1 208.8799 248)" class="st4 st3">CHAR(10)</text>
+<text transform="matrix(1 0 0 1 87 263)" class="st4 st3">N</text>
+<text transform="matrix(1 0 0 1 115.0591 263)" class="st4 st3">custPw</text>
+<text transform="matrix(1 0 0 1 208.8799 263)" class="st4 st3">TINYTEXT</text>
+<text transform="matrix(1 0 0 1 115.0591 278)" class="st4 st3">signupTime</text>
+<text transform="matrix(1 0 0 1 208.8799 278)" class="st4 st3">TIMESTAMP</text>
+<text transform="matrix(1 0 0 1 87 293)" class="st4 st3">N</text>
+<text transform="matrix(1 0 0 1 115.0591 293)" class="st4 st3">activeStart</text>
+<text transform="matrix(1 0 0 1 208.8799 293)" class="st4 st3">DATE</text>
+<text transform="matrix(1 0 0 1 87 308)" class="st4 st3">N</text>
+<text transform="matrix(1 0 0 1 115.0591 308)" class="st4 st3">activeEnd</text>
+<text transform="matrix(1 0 0 1 208.8799 308)" class="st4 st3">DATE</text>
+<text transform="matrix(1 0 0 1 115.0591 323)" class="st4 st3">updateTime</text>
+<text transform="matrix(1 0 0 1 208.8799 323)" class="st4 st3">TIMESTAMP</text>
+<text transform="matrix(1 0 0 1 115.0591 338)" class="st4 st3">updateDue</text>
+<text transform="matrix(1 0 0 1 208.8799 338)" class="st4 st3">BOOLEAN</text>
+<g transform="translate(-14,-30) scale(1,1)">
+	<rect x="115" y="424" class="st0" width="175" height="60"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M115,424h175v60H115V424z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M115,447h175"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M164,447v37"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M214.5,447v37"/>
+</g>
+<text transform="matrix(1 0 0 1 149.1255 411.5)" class="st2 st3">USER_ROLE</text>
+<text transform="matrix(1 0 0 1 106 435)" class="st4 st3">PK,FK</text>
+<text transform="matrix(1 0 0 1 155 435)" class="st4 st3">roleID</text>
+<text transform="matrix(1 0 0 1 205.46 435)" class="st4 st3">INT</text>
+<text transform="matrix(1 0 0 1 106 450)" class="st4 st3">PK,FK</text>
+<text transform="matrix(1 0 0 1 155 450)" class="st4 st3">userID</text>
+<text transform="matrix(1 0 0 1 205.46 450)" class="st4 st3">INT</text>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M227,372v52"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M227,410l-7,14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M227,410l7,14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M220,410h14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M234,379h-14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M234,386h-14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<rect x="116" y="552" class="st0" width="172" height="60"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M116,552h172v60H116V552z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M116,575h172"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M144.1,575v37"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M213.3,575v37"/>
+</g>
+<text transform="matrix(1 0 0 1 170.3091 539.5)" class="st2 st3">ROLE</text>
+<text transform="matrix(1 0 0 1 107 563)" class="st4 st3">PK</text>
+<text transform="matrix(1 0 0 1 135.0591 563)" class="st4 st3">roleID</text>
+<text transform="matrix(1 0 0 1 204.3081 563)" class="st4 st3">INT</text>
+<text transform="matrix(1 0 0 1 135.0591 578)" class="st4 st3">roleName</text>
+<text transform="matrix(1 0 0 1 204.3081 578)" class="st4 st3">TINYTEXT</text>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M219,552v-68"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M219,498l7-14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M219,498l-7-14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st0" d="M212,506c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S212,509.9,212,506z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M212,506c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S212,509.9,212,506z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M212,545h14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M212,538h14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<rect x="512" y="128" class="st0" width="241.8" height="195"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M512,128h241.8v195H512V128z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M512,151h241.8"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M552.3,151v172"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M669.2,151v172"/>
+</g>
+<text transform="matrix(1 0 0 1 583.8699 115.5)" class="st2 st3">FEEDBACK</text>
+<text transform="matrix(1 0 0 1 503 139)" class="st4 st3">PK</text>
+<text transform="matrix(1 0 0 1 543.3291 139)" class="st4 st3">feedbackID</text>
+<text transform="matrix(1 0 0 1 660.2236 139)" class="st4 st3">INT</text>
+<text transform="matrix(1 0 0 1 503 154)" class="st4 st3">FK,N</text>
+<text transform="matrix(1 0 0 1 543.3291 154)" class="st4 st3">userID</text>
+<text transform="matrix(1 0 0 1 660.2236 154)" class="st4 st3">INT</text>
+<text transform="matrix(1 0 0 1 503 169)" class="st4 st3">FK,N</text>
+<text transform="matrix(1 0 0 1 543.3291 169)" class="st4 st3">activityID</text>
+<text transform="matrix(1 0 0 1 660.2236 169)" class="st4 st3">BIGINT</text>
+<text transform="matrix(1 0 0 1 543.3291 184)" class="st4 st3">isAnonymous</text>
+<text transform="matrix(1 0 0 1 660.2236 184)" class="st4 st3">BOOLEAN</text>
+<text transform="matrix(1 0 0 1 503 199)" class="st4 st3">N</text>
+<text transform="matrix(1 0 0 1 543.3291 199)" class="st4 st3">feedback</text>
+<text transform="matrix(1 0 0 1 660.2236 199)" class="st4 st3">TEXT</text>
+<text transform="matrix(1 0 0 1 503 214)" class="st4 st3">N</text>
+<text transform="matrix(1 0 0 1 543.3291 214)" class="st4 st3">ratingOverall</text>
+<text transform="matrix(1 0 0 1 660.2236 214)" class="st4 st3">TINYINT</text>
+<text transform="matrix(1 0 0 1 503 229)" class="st4 st3">N</text>
+<text transform="matrix(1 0 0 1 543.3291 229)" class="st4 st3">ratingHumans</text>
+<text transform="matrix(1 0 0 1 660.2236 229)" class="st4 st3">TINYINT</text>
+<text transform="matrix(1 0 0 1 503 244)" class="st4 st3">N</text>
+<text transform="matrix(1 0 0 1 543.3291 244)" class="st4 st3">ratingSouvenir</text>
+<text transform="matrix(1 0 0 1 660.2236 244)" class="st4 st3">TINYINT</text>
+<text transform="matrix(1 0 0 1 503 259)" class="st4 st3">N</text>
+<text transform="matrix(1 0 0 1 543.3291 259)" class="st4 st3">ratingLearn</text>
+<text transform="matrix(1 0 0 1 660.2236 259)" class="st4 st3">TINYINT</text>
+<text transform="matrix(1 0 0 1 503 274)" class="st4 st3">N</text>
+<text transform="matrix(1 0 0 1 543.3291 274)" class="st4 st3">ratingConfidence</text>
+<text transform="matrix(1 0 0 1 660.2236 274)" class="st4 st3">TINYINT</text>
+<text transform="matrix(1 0 0 1 543.3291 289)" class="st4 st3">createTime</text>
+<text transform="matrix(1 0 0 1 660.2236 289)" class="st4 st3">TIMESTAMP</text>
+<g transform="translate(-14,-30) scale(1,1)">
+	<rect x="520" y="392" class="st0" width="194.9" height="120"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M520,392h194.9v120H520V392z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M520,415h194.9"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M548.1,415v97"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M630.3,415v97"/>
+</g>
+<text transform="matrix(1 0 0 1 585.7412 379.5)" class="st2 st3">RSVP</text>
+<text transform="matrix(1 0 0 1 511 403)" class="st4 st3">PK</text>
+<text transform="matrix(1 0 0 1 539.0591 403)" class="st4 st3">rsvpID</text>
+<text transform="matrix(1 0 0 1 621.2954 403)" class="st4 st3">SERIAL</text>
+<text transform="matrix(1 0 0 1 511 418)" class="st4 st3">FK</text>
+<text transform="matrix(1 0 0 1 539.0591 418)" class="st4 st3">userID</text>
+<text transform="matrix(1 0 0 1 621.2954 418)" class="st4 st3">INT</text>
+<text transform="matrix(1 0 0 1 511 433)" class="st4 st3">FK</text>
+<text transform="matrix(1 0 0 1 539.0591 433)" class="st4 st3">activityID</text>
+<text transform="matrix(1 0 0 1 621.2954 433)" class="st4 st3">SERIAL</text>
+<text transform="matrix(1 0 0 1 539.0591 448)" class="st4 st3">createTime</text>
+<text transform="matrix(1 0 0 1 621.2954 448)" class="st4 st3">TIMESTAMP</text>
+<text transform="matrix(1 0 0 1 539.0591 463)" class="st4 st3">specificInfo</text>
+<text transform="matrix(1 0 0 1 621.2954 463)" class="st4 st3">JSON</text>
+<text transform="matrix(1 0 0 1 539.0591 478)" class="st4 st3">isRevoked</text>
+<text transform="matrix(1 0 0 1 621.2954 478)" class="st4 st3">BOOLEAN</text>
+<g transform="translate(-14,-30) scale(1,1)">
+	<rect x="520" y="568" class="st0" width="204.3" height="90"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M520,568h204.3v90H520V568z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M520,591h204.3"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M548.1,591v67"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M639.7,591v67"/>
+</g>
+<text transform="matrix(1 0 0 1 564.5623 555.5)" class="st2 st3">ATTENDANCE</text>
+<text transform="matrix(1 0 0 1 511 579)" class="st4 st3">PK</text>
+<text transform="matrix(1 0 0 1 539.0591 579)" class="st4 st3">attendanceID</text>
+<text transform="matrix(1 0 0 1 630.6899 579)" class="st4 st3">SERIAL</text>
+<text transform="matrix(1 0 0 1 511 594)" class="st4 st3">FK</text>
+<text transform="matrix(1 0 0 1 539.0591 594)" class="st4 st3">userID</text>
+<text transform="matrix(1 0 0 1 630.6899 594)" class="st4 st3">INT</text>
+<text transform="matrix(1 0 0 1 511 609)" class="st4 st3">FK</text>
+<text transform="matrix(1 0 0 1 539.0591 609)" class="st4 st3">activityID</text>
+<text transform="matrix(1 0 0 1 630.6899 609)" class="st4 st3">SERIAL</text>
+<text transform="matrix(1 0 0 1 539.0591 624)" class="st4 st3">createTime</text>
+<text transform="matrix(1 0 0 1 630.6899 624)" class="st4 st3">TIMESTAMP</text>
+<g transform="translate(-14,-30) scale(1,1)">
+	<rect x="928" y="208" class="st0" width="221.6" height="195"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M928,208h221.6v195H928V208z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M928,231h221.6"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M956.1,231v172"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M1065,231v172"/>
+</g>
+<text transform="matrix(1 0 0 1 995.5535 195.5)" class="st2 st3">ACTIVITY</text>
+<text transform="matrix(1 0 0 1 919 219)" class="st4 st3">PK</text>
+<text transform="matrix(1 0 0 1 947.0591 219)" class="st4 st3">activityID</text>
+<text transform="matrix(1 0 0 1 1056.0254 219)" class="st4 st3">SERIAL</text>
+<text transform="matrix(1 0 0 1 919 234)" class="st4 st3">N</text>
+<text transform="matrix(1 0 0 1 947.0591 234)" class="st4 st3">activityDesc</text>
+<text transform="matrix(1 0 0 1 1056.0254 234)" class="st4 st3">TEXT</text>
+<text transform="matrix(1 0 0 1 919 249)" class="st4 st3">N</text>
+<text transform="matrix(1 0 0 1 947.0591 249)" class="st4 st3">activityPic</text>
+<text transform="matrix(1 0 0 1 1056.0254 249)" class="st4 st3">TEXT</text>
+<text transform="matrix(1 0 0 1 919 264)" class="st4 st3">FK</text>
+<text transform="matrix(1 0 0 1 947.0591 264)" class="st4 st3">userID</text>
+<text transform="matrix(1 0 0 1 1056.0254 264)" class="st4 st3">INT</text>
+<text transform="matrix(1 0 0 1 947.0591 279)" class="st4 st3">activityStart</text>
+<text transform="matrix(1 0 0 1 1056.0254 279)" class="st4 st3">DATETIME</text>
+<text transform="matrix(1 0 0 1 947.0591 294)" class="st4 st3">activityEnd</text>
+<text transform="matrix(1 0 0 1 1056.0254 294)" class="st4 st3">DATETIME</text>
+<text transform="matrix(1 0 0 1 919 309)" class="st4 st3">N</text>
+<text transform="matrix(1 0 0 1 947.0591 309)" class="st4 st3">activityLocation</text>
+<text transform="matrix(1 0 0 1 1056.0254 309)" class="st4 st3">TEXT</text>
+<text transform="matrix(1 0 0 1 947.0591 324)" class="st4 st3">createTime</text>
+<text transform="matrix(1 0 0 1 1056.0254 324)" class="st4 st3">TIMESTAMP</text>
+<text transform="matrix(1 0 0 1 947.0591 339)" class="st4 st3">updateTime</text>
+<text transform="matrix(1 0 0 1 1056.0254 339)" class="st4 st3">TIMESTAMP</text>
+<text transform="matrix(1 0 0 1 919 354)" class="st4 st3">N</text>
+<text transform="matrix(1 0 0 1 947.0591 354)" class="st4 st3">activityTag</text>
+<text transform="matrix(1 0 0 1 1056.0254 354)" class="st4 st3">JSON</text>
+<text transform="matrix(1 0 0 1 919 369)" class="st4 st3">N</text>
+<text transform="matrix(1 0 0 1 947.0591 369)" class="st4 st3">specificInfo</text>
+<text transform="matrix(1 0 0 1 1056.0254 369)" class="st4 st3">JSON</text>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st5" d="M302,144h210"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M498,144l14,7"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M498,144l14-7"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st0" d="M483,144c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S483,147.9,483,144z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M483,144c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S483,147.9,483,144z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st0" d="M317,144c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S317,147.9,317,144z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M317,144c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S317,147.9,317,144z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M309,137v14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M302,224h98 M400,224c4.4,0,8,3.6,8,8v221 M408,453c0,4.4,3.6,8,8,8h104"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M506,461l14,7"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M506,461l14-7"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st0" d="M491,461c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S491,464.9,491,461z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M491,461c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S491,464.9,491,461z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M309,217v14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M316,217v14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M1094,403v202 M1094,605c0,4.4-3.6,8-8,8H724"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M738,613l-14-7"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M738,613l-14,7"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st0" d="M739,613c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S739,616.9,739,613z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M739,613c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S739,616.9,739,613z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M1101,410h-14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M1101,417h-14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st5" d="M928,262H754"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M768,262l-14-7"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M768,262l-14,7"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st0" d="M769,262c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S769,265.9,769,262z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M769,262c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S769,265.9,769,262z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st0" d="M899,262c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S899,265.9,899,262z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M899,262c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S899,265.9,899,262z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M921,269v-14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M302,320h50 M352,320c4.4,0,8,3.6,8,8v277 M360,605c0,4.4,3.6,8,8,8h152"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M506,613l14,7"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M506,613l14-7"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st0" d="M491,613c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S491,616.9,491,613z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M491,613c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S491,616.9,491,613z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M309,313v14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M316,313v14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M715,464h301 M1016,464c4.4,0,8-3.6,8-8v-53"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M1031,410h-14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M1031,417h-14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M729,464l-14-7"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M729,464l-14,7"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st0" d="M730,464c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S730,467.9,730,464z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M730,464c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S730,467.9,730,464z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M240,72V56 M240,56c0-4.4,3.6-8,8-8h760 M1008,48c4.4,0,8,3.6,8,8v152"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M1016,194l-7,14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M1016,194l7,14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st0" d="M1009,186c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S1009,189.9,1009,186z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M1009,186c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S1009,189.9,1009,186z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M233,65h14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M233,58h14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<rect x="112" y="696" class="st0" width="204.5" height="120"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M112,696h204.5v120H112V696z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M112,719h204.5"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M152.3,719v97"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M244.7,719v97"/>
+</g>
+<text transform="matrix(1 0 0 1 155.1118 683.5)" class="st2 st3">PERMISSIONS</text>
+<text transform="matrix(1 0 0 1 103 707)" class="st4 st3">PK</text>
+<text transform="matrix(1 0 0 1 143.3291 707)" class="st4 st3">permissionID</text>
+<text transform="matrix(1 0 0 1 235.6836 707)" class="st4 st3">INT</text>
+<text transform="matrix(1 0 0 1 103 722)" class="st4 st3">FK,N</text>
+<text transform="matrix(1 0 0 1 143.3291 722)" class="st4 st3">roleID</text>
+<text transform="matrix(1 0 0 1 235.6836 722)" class="st4 st3">INT</text>
+<text transform="matrix(1 0 0 1 103 737)" class="st4 st3">FK,N</text>
+<text transform="matrix(1 0 0 1 143.3291 737)" class="st4 st3">userID</text>
+<text transform="matrix(1 0 0 1 235.6836 737)" class="st4 st3">INT</text>
+<text transform="matrix(1 0 0 1 143.3291 752)" class="st4 st3">tableName</text>
+<text transform="matrix(1 0 0 1 235.6836 752)" class="st4 st3">TINYTEXT</text>
+<text transform="matrix(1 0 0 1 103 767)" class="st4 st3">N</text>
+<text transform="matrix(1 0 0 1 143.3291 767)" class="st4 st3">fieldName</text>
+<text transform="matrix(1 0 0 1 235.6836 767)" class="st4 st3">TINYTEXT</text>
+<text transform="matrix(1 0 0 1 143.3291 782)" class="st4 st3">permission</text>
+<text transform="matrix(1 0 0 1 235.6836 782)" class="st4 st3">JSON</text>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M202,612v84"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M202,682l-7,14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M202,682l7,14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st0" d="M195,674c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S195,677.9,195,674z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M195,674c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S195,677.9,195,674z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M209,619h-14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M209,626h-14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M96,280H32 M32,280c-4.4,0-8,3.6-8,8v456 M24,744c0,4.4,3.6,8,8,8h80"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M98,752l14,7"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M98,752l14-7"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st0" d="M83,752c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S83,755.9,83,752z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M83,752c0-3.9,3.1-7,7-7s7,3.1,7,7s-3.1,7-7,7S83,755.9,83,752z"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M89,287v-14"/>
+</g>
+<g transform="translate(-14,-30) scale(1,1)">
+	<path class="st1" d="M82,287v-14"/>
+</g>
+</svg>
