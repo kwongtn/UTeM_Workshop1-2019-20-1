@@ -89,3 +89,5 @@ typings/
 
 # testing space
 test
+private
+data
