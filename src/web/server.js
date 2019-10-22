@@ -2,7 +2,6 @@ var express = require("express");
 var session = require("cookie-session");
 var bodyParser = require("body-parser");
 var urlEncodedParser = bodyParser.urlencoded({extended: false});
-var mysql = require("mysql2");
 
 var app = express();
 
