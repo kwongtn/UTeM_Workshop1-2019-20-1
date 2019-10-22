@@ -30,11 +30,6 @@ app.use(session({secure: true, secret: "someKey"}))
         appName: appName
     });
 })
-;
 
-// Declaring all mySQL connections
-var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "password"
-})
+.listen(8080)
+;
