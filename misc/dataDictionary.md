@@ -15,6 +15,8 @@ In this document, we will describe the database and tables used in a tabular for
 | USER_ROLE     |
 
 # Tables
+- In all databases, we follow the standard set by mySQL, where datatype 'serial' equals to ```BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE```, in the following tables, we equate ```serial``` with ```BIGINT(20) UNSIGNED```
+
 ## USER
 | Field       | Type             | Null | Key | Default           | Extra                       | Additional Description |
 |-------------|------------------|------|-----|-------------------|-----------------------------| --- |
@@ -47,26 +49,14 @@ In this document, we will describe the database and tables used in a tabular for
 | roleName | tinytext         | NO   |     | NULL    |                |
 
 ## USER_ROLE
-| Field            | Type                | Null | Key | Default           | Extra             | 
-|------------------|---------------------|------|-----|-------------------|-------------------|
-| feedbackID       | int(10) unsigned    | NO   | PRI | NULL              | auto_increment    | 
-| userID           | int(10) unsigned    | YES  | MUL | NULL              |                   | 
-| activityID       | bigint(20) unsigned | YES  | MUL | NULL              |                   | 
-| isAnonymous      | tinyint(1)          | NO   |     | NULL              |                   | 
-| feedback         | text                | YES  |     | NULL              |                   | 
-| ratingOverall    | tinyint(3) unsigned | YES  |     | NULL              |                   | 
-| ratingHumans     | tinyint(3) unsigned | YES  |     | NULL              |                   | 
-| ratingSouvenir   | tinyint(3) unsigned | YES  |     | NULL              |                   | 
-| ratingLearn      | tinyint(3) unsigned | YES  |     | NULL              |                   | 
-| ratingConfidence | tinyint(3) unsigned | YES  |     | NULL              |                   | 
-| createTime       | timestamp           | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED | 
+
 
 ## FEEDBACK
 | Field            | Type                | Null | Key | Default           | Extra             |
 |------------------|---------------------|------|-----|-------------------|-------------------|
 | feedbackID       | int(10) unsigned    | NO   | PRI | NULL              | auto_increment    |
 | userID           | int(10) unsigned    | YES  | MUL | NULL              |                   |
-| activityID       | bigint(20) unsigned | YES  | MUL | NULL              |                   |
+| activityID       | serial | YES  | MUL | NULL              |                   |
 | isAnonymous      | tinyint(1)          | NO   |     | NULL              |                   |
 | feedback         | text                | YES  |     | NULL              |                   |
 | ratingOverall    | tinyint(3) unsigned | YES  |     | NULL              |                   |
@@ -79,9 +69,9 @@ In this document, we will describe the database and tables used in a tabular for
 ## RSVP
 | Field        | Type                | Null | Key | Default           | Extra             |
 |--------------|---------------------|------|-----|-------------------|-------------------|
-| rsvpID       | bigint(20) unsigned | NO   | PRI | NULL              | auto_increment    |
+| rsvpID       | serial | NO   | PRI | NULL              | auto_increment    |
 | userID       | int(10) unsigned    | NO   | MUL | NULL              |                   |
-| activityID   | bigint(20) unsigned | NO   | MUL | NULL              |                   |
+| activityID   | serial | NO   | MUL | NULL              |                   |
 | createTime   | timestamp           | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
 | specificInfo | json                | NO   |     | NULL              |                   |
 | isRevoked    | tinyint(1)          | NO   |     | NULL              |                   |
@@ -89,18 +79,17 @@ In this document, we will describe the database and tables used in a tabular for
 - 
 
 ## ATTENDANCE
-|--------------|---------------------|------|-----|-------------------|-------------------|
 | Field        | Type                | Null | Key | Default           | Extra             |     
 |--------------|---------------------|------|-----|-------------------|-------------------|     
-| attendanceID | bigint(20) unsigned | NO   | PRI | NULL              | auto_increment    |
+| attendanceID | serial | NO   | PRI | NULL              | auto_increment    |
 | userID       | int(10) unsigned    | NO   | MUL | NULL              |                   |
-| activityID   | bigint(20) unsigned | NO   | MUL | NULL              |                   |
+| activityID   | serial | NO   | MUL | NULL              |                   |
 | createTime   | timestamp           | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
 
 ## ACTIVITY
 | Field            | Type                | Null | Key | Default           | Extra                       |
 |------------------|---------------------|------|-----|-------------------|-----------------------------|
-| activityID       | bigint(20) unsigned | NO   | PRI | NULL              | auto_increment              |
+| activityID       | serial | NO   | PRI | NULL              | auto_increment              |
 | activityDesc     | text                | YES  |     | NULL              |                             |
 | activityPic      | text                | YES  |     | NULL              |                             |
 | userID           | int(10) unsigned    | NO   | MUL | NULL              |                             |
@@ -128,7 +117,6 @@ The json entry for ```activityTag``` will be as such:
 ```
 
 ## PERMISSIONS
-|--------------|------------------|------|-----|---------|----------------|
 | Field        | Type             | Null | Key | Default | Extra          |
 |--------------|------------------|------|-----|---------|----------------|
 | permissionID | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
