@@ -28,9 +28,7 @@ var appName = "club-man";
 
 app.use(session({secure: true, secret: "someKey"}))
 
-.use("/login", function(req, res){
-
-.use("/", function(req, res){
+.get("/", function(req, res){
     var now = new Date();
     res.render("login.ejs", {
         appName: appName,
@@ -38,10 +36,14 @@ app.use(session({secure: true, secret: "someKey"}))
     });
 })
 
-.post("/login",  urlEncodedParser, function(req, res){
+.post("/login/",  urlEncodedParser, function(req, res){
     var login = req.body.username;
     var pass = req.body.pass;
+
+    console.log("Login: " + req.body.username);
+    console.log("Password: " + req.body.pass);
     
+    res.redirect("/");
 })
 
 .get("/home", function(req, res){

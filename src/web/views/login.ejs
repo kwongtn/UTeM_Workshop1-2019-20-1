@@ -10,11 +10,13 @@
         <p>Server time is <%= time %></p>
         
         <div style="text-align: center">
-            <form method="POST">
-                Username: <input type="text" name="username"><br>
-                Password: <input type="password" name="pass"><br>
+            <form action="/login/" method="post">
+                <label for="username" >Username</label>
+                <input type="text" name="username"><br>
+                <label for="pass">Password</label>
+                <input type="password" name="pass"><br>
     
-                <input type="submit" value="login">
+                <input type="submit" value="login" />
     
             </form>
         </div>
