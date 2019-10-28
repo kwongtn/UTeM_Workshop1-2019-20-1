@@ -1,11 +1,12 @@
 {
     "name": "club-man",
     "dependencies": {
-        "express": ">=4.11.0",
-        "ejs": ">=2.1.4",
-        "cookie-session": ">=1.1.0",
+        "@mysql/xdevapi": "^8.0.18",
         "body-parser": ">=1.10.1",
-        "mysql": ">=1.7.0"
+        "cookie-session": ">=1.1.0",
+        "ejs": ">=2.1.4",
+        "express": ">=4.11.0",
+        "material-components-web": "^3.2.0"
     },
     "author": {
         "email": "tungnan5636@gmail.com",

@@ -56,18 +56,25 @@ app.use(session({ secure: true, secret: "someKey" }))
             appName: appName
         });
     })
+    //To add entry for search functionality
+    .get("/listUsers", function (req, res) {
+        eventEmitter.emit("listUsers");
+        var attribList = [
+            { "name": "engName", "label": "English Name" },
+            { "name": "chineseName", "label": "Chinese Name" },
+            { "name": "email", "label": "e-mail" },
+            { "name": "phoneNo", "label": "Phone Number" },
+            { "name": "facebookID", "label": "Facebook ID" },
+            { "name": "icNo", "label": "IC Number" },
+            { "name": "matricNo", "label": "Matric No" },
+            { "name": "hostel", "label": "Hostel" },
+            { "name": "faculty", "label": "Faculty" }
+        ];
 
-    .use("/listUsers", function (req, res) {
-        // console.log(userList);
-        // var userList = eventEmitter.emit("dbConnect", "USER");
-        // console.log(userList);
+        var passedAttrib = ["userID", "engName", "chineseName", "email", "phoneNo", "facebookID", "icNo", "matricNo", "hostel", "faculty"];
 
-        // mysqlx.getSession(config)
-        //     .then(session => {
-        //         return session.getSchema("CLUB-MAN").getTable("USER");
-        //     })
         reqTable("USER").then(table => {
-                return table.select(["userID", "engName", "chineseName", "email", "phoneNo", "facebookID", "icNo", "matricNo", "hostel", "faculty"])
+                return table.select(passedAttrib)
                 .where("faculty like :fac")
                 .bind('fac', 'FTMK')
                 .execute();
@@ -84,7 +91,8 @@ app.use(session({ secure: true, secret: "someKey" }))
         
         eventEmitter.on("listUsers", x => {
             res.render("listUsers.ejs", {
-                list: x
+                list: x,
+                attribList: attribList
             });
             console.log("Page loaded");
 
@@ -92,6 +100,12 @@ app.use(session({ secure: true, secret: "someKey" }))
 
     })
 
+    .post("/listUsers", urlEncodedParser, function (req, res){
+        console.log(req.body.engName);
+        console.log(req.body.chineseName);
+
+        res.redirect("/home");
+    })
 
     .listen(8080)
     ;
