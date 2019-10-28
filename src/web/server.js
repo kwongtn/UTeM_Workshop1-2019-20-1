@@ -4,8 +4,18 @@ var session = require("cookie-session");
 var bodyParser = require("body-parser");
 var urlEncodedParser = bodyParser.urlencoded({ extended: false });
 
+// Event emmiter
+var events = require("events");
+var eventEmitter = new events.EventEmitter();
+
 // Database connection 
 const mysqlx = require('@mysql/xdevapi');
+
+async function reqTable(tableName){
+    const session = await mysqlx.getSession(config);
+    const table = session.getSchema("CLUB-MAN").getTable(tableName);
+    return table;
+};
 
 
 // 8081 uses x-Protocol, while 8082 uses the old authentication method
@@ -41,28 +51,42 @@ app.use(session({ secure: true, secret: "someKey" }))
         res.redirect("/home");
     })
 
-    .get("/home", function (req, res) {
+    .use("/home", function (req, res) {
         res.render("home.ejs", {
             appName: appName
         });
     })
 
-    .get("/listUsers", function (req, res) {
-        var userList = mysqlx.getSession(config)
-            .then(session => {
-                return session.getSchema("CLUB-MAN").getTable("USER");
-            })
-            .then(table => {
-                return table.select(["userID", "engName", "email", "faculty"])
-                    .bind('fac', 'FTMK')
-                    .execute();
+    .use("/listUsers", function (req, res) {
+        // console.log(userList);
+        // var userList = eventEmitter.emit("dbConnect", "USER");
+        // console.log(userList);
+
+        // mysqlx.getSession(config)
+        //     .then(session => {
+        //         return session.getSchema("CLUB-MAN").getTable("USER");
+        //     })
+        reqTable("USER").then(table => {
+                return table.select(["userID", "engName", "chineseName", "email", "phoneNo", "facebookID", "icNo", "matricNo", "hostel", "faculty"])
+                .where("faculty like :fac")
+                .bind('fac', 'FTMK')
+                .execute();
             })
             .then(output => {
-                console.log(output.fetchAll());
-                console.log("==================");
-            });
+                return output.fetchAll(); 
+            })
+            .then(x => {
+                eventEmitter.emit("listUsers", x)
+            })
+            
+            ;
 
-        res.render("listUsers.ejs", {
+        
+        eventEmitter.on("listUsers", x => {
+            res.render("listUsers.ejs", {
+                list: x
+            });
+            console.log("Page loaded");
 
         })
 
