@@ -56,12 +56,13 @@ app.use(session({ secure: true, secret: "someKey" }))
             appName: appName
         });
     })
+
     //To add entry for search functionality
     .get("/listUsers", function (req, res) {
-        eventEmitter.emit("listUsers");
         var attribList = [
             { "name": "engName", "label": "English Name" },
-            { "name": "chineseName", "label": "Chinese Name" },
+            // Due to CJK Problems, we will ignore chinese names for the time being.
+            // { "name": "chineseName", "label": "Chinese Name" },
             { "name": "email", "label": "e-mail" },
             { "name": "phoneNo", "label": "Phone Number" },
             { "name": "facebookID", "label": "Facebook ID" },

@@ -24,11 +24,11 @@ SET FOREIGN_KEY_CHECKS = 1;
 CREATE TABLE `USER` (
     `userID` INT UNSIGNED AUTO_INCREMENT NOT NULL,
     `engName` TINYTEXT NOT NULL,
-    `chineseName` TINYTEXT NOT NULL,
+    -- `chineseName` TINYTEXT NOT NULL,
     `email` TINYTEXT NOT NULL,
     `phoneNo` TINYTEXT NOT NULL,
-    `facebookID` TINYTEXT NOT NULL,
-    `icNo` CHAR(12) NOT NULL,
+    `facebookID` TINYTEXT,
+    `icNo` CHAR(14) NOT NULL,
     `hostel` TINYTEXT,
     `faculty` TINYTEXT,
     `course` TINYTEXT,
@@ -38,13 +38,14 @@ CREATE TABLE `USER` (
     `signupTime` TIMESTAMP 
         DEFAULT CURRENT_TIMESTAMP 
         NOT NULL,
-    `activeStart` DATE NOT NULL,
-    `activeEnd` DATE NOT NULL,
+    `activeStart` DATE,
+    `activeEnd` DATE,
     `updateTime` TIMESTAMP 
         DEFAULT CURRENT_TIMESTAMP 
         ON UPDATE CURRENT_TIMESTAMP 
         NOT NULL,
-    `updateDue` BOOLEAN NOT NULL,
+    `updateDue` BOOLEAN NOT NULL
+        DEFAULT 0,
     PRIMARY KEY (`userID`),
     UNIQUE (`userID`)
 );
