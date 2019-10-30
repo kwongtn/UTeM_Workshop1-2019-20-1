@@ -4,6 +4,11 @@
 <body>
     <a href="/home">Back to home</a>
     <script type="text/javascript" src="assets/formProcessor.js"></script>
+    <form id="ifTextFocus">
+        <label for="textFocus">Select all constrained labels?</label>
+        <input id="textFocus" type="checkbox" checked>
+    </form>
+
     <p>Select the attributes you want to see:</p>
     <form id="query" class="query">
 
@@ -11,7 +16,7 @@
 
         <input id="<%= attribList[x].name %>Checkbox" type="checkbox" name="query" value="<%= attribList[x].name %>Checkbox">
         <label for="<%= attribList[x].name %>"><%= attribList[x].label %></label>
-        <input type="text" name="<%= attribList[x].name %>"> <br>
+        <input type="text" name="<%= attribList[x].name %>" onclick="textFocus('<%= attribList[x].name %>')"> <br>
         <% }; %>
 
         <input type="submit">
@@ -23,9 +28,13 @@
 
 </body>
 <script type="text/javascript">
-    // function textFocus(checkbox){
-    //     document.getElementById(checkbox + "Checkbox").type("checkbox").checked = true;
-    // };
+    // Select all constrained labels by default
+    function textFocus(checkbox){
+        if(document.getElementById("textFocus").checked){
+            console.log(checkbox);
+            document.getElementById(checkbox + "Checkbox").checked = true;
+        }
+    };
 
     // Checks if there exists an element and name
     const isValidElement = element => {
