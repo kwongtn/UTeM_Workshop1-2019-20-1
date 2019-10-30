@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <a href="/home">Back to home</a>
+    <script type="text/javascript" src="assets/formProcessor.js"></script>
+    <p>Select the attributes you want to see:</p>
+    <form id="query" class="query">
+
+        <% for (x in attribList){ %>
+
+        <input id="<%= attribList[x].name %>Checkbox" type="checkbox" name="query" value="<%= attribList[x].name %>Checkbox">
+        <label for="<%= attribList[x].name %>"><%= attribList[x].label %></label>
+        <input type="text" name="<%= attribList[x].name %>"> <br>
+        <% }; %>
+
+        <input type="submit">
+
+    </form>
+
+
+    <p id="formData"></p>
+
+</body>
+
+
+</html>
