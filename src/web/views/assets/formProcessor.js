@@ -1,3 +1,11 @@
+// Select all constrained labels by default
+function textFocus(checkbox) {
+    if (document.getElementById("textFocus").checked) {
+        console.log(checkbox);
+        document.getElementById(checkbox).checked = true;
+    }
+};
+
 // Checks if there exists an element and name
 const isValidElement = element => {
     return element.name && element.value;
@@ -56,10 +64,19 @@ const handleFormSubmit = event => {
     document.getElementById("formData").innerHTML = JSON.stringify(data);
     console.log(JSON.stringify(data));
 
+    // Send JSON to server using POST method
+    var xhr = new XMLHttpRequest();
+    var url = "/listUsers/";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
 
+    xhr.send(JSON.stringify(data));
 
 };
 
 const form = document.getElementsByClassName("query")[0];
-form.addEventListener("submit", handleFormSubmit);
+var data = form.addEventListener("submit", handleFormSubmit);
+
+
+
 

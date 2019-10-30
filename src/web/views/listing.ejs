@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User List Page</title>
+</head>
+
+<body>
+    <table>
+        <% list.forEach(function (element) { %>
+        <tr>
+            <% element.forEach(function (i) { %>
+            <td>
+                <%= i %>
+            </td>
+            <% }); %>
+        </tr>
+        <% }); %>
+    </table>
+</body>
+
+
+</html>

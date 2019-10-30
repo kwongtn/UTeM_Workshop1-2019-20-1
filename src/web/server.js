@@ -8,10 +8,20 @@ var urlEncodedParser = bodyParser.urlencoded({ extended: false });
 var events = require("events");
 var eventEmitter = new events.EventEmitter();
 
+// Db data listing function
+eventEmitter.on("list", (res, x) => {
+    // console.log(x);
+    return x;
+    res.render("listing.ejs", {
+        list: x
+    });
+    console.log("Listing Page loaded");
+});
+
 // Database connection 
 const mysqlx = require('@mysql/xdevapi');
 
-async function reqTable(tableName){
+async function reqTable(tableName) {
     const session = await mysqlx.getSession(config);
     const table = session.getSchema("CLUB-MAN").getTable(tableName);
     return table;
@@ -29,9 +39,11 @@ const config = {
 // Application 
 var app = express();
 
-var appName = "club-man";
+const appName = "club-man";
 
 app.use(session({ secure: true, secret: "someKey" }))
+    .use(express.json())
+    .use(express.static("views"))
 
     .get("/", function (req, res) {
         var now = new Date();
@@ -58,8 +70,9 @@ app.use(session({ secure: true, secret: "someKey" }))
     })
 
     //To add entry for search functionality
-    .get("/listUsers", function (req, res) {
+    .get("/listUser", function (req, res) {
         var attribList = [
+            { "name": "userID", "label": "User ID" },
             { "name": "engName", "label": "English Name" },
             // Due to CJK Problems, we will ignore chinese names for the time being.
             // { "name": "chineseName", "label": "Chinese Name" },
@@ -71,43 +84,45 @@ app.use(session({ secure: true, secret: "someKey" }))
             { "name": "hostel", "label": "Hostel" },
             { "name": "faculty", "label": "Faculty" }
         ];
+        // var type = userList;
 
-        var passedAttrib = ["userID", "engName", "chineseName", "email", "phoneNo", "facebookID", "icNo", "matricNo", "hostel", "faculty"];
-
-        reqTable("USER").then(table => {
-                return table.select(passedAttrib)
-                .where("faculty like :fac")
-                .bind('fac', 'FTMK')
-                .execute();
-            })
-            .then(output => {
-                return output.fetchAll(); 
-            })
-            .then(x => {
-                eventEmitter.emit("listUsers", x)
-            })
-            
-            ;
-
-        
-        eventEmitter.on("listUsers", x => {
-            res.render("listUsers.ejs", {
-                list: x,
-                attribList: attribList
-            });
-            console.log("Page loaded");
-
-        })
+        res.render("query.ejs", {
+            attribList: attribList,
+            // type: type
+        });
 
     })
 
-    .post("/listUsers", urlEncodedParser, function (req, res){
-        console.log(req.body.engName);
-        console.log(req.body.chineseName);
+    .use(bodyParser.urlencoded({ extended: true }))
+    .use(bodyParser.json())
 
-        res.redirect("/home");
+    .post("/listUsers/", function (req, res) {
+        var dbResponse;
+        reqTable("USER").then(table => {
+            return table.select(req.body.query)
+                .execute();
+        })
+            .then(output => {
+                return output.fetchAll();
+            })
+            .then(x => {
+                console.log(x);
+                console.log("Done with selection");
+                dbResponse = eventEmitter.emit("list", res, x)
+            })
+            ;
+            res.render("listing.ejs", {
+                list: dbResponse
+            });
+        
     })
 
     .listen(8080)
     ;
 
+app
+    .get("/assets/:file", (req, res) => {
+        var sendFile = "./assets/" + req.params.file;
+        console.log(sendFile);
+        res.sendFile(sendFile);
+    });
