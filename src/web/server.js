@@ -3,20 +3,59 @@ var express = require("express");
 var session = require("cookie-session");
 var bodyParser = require("body-parser");
 var urlEncodedParser = bodyParser.urlencoded({ extended: false });
+var dbResponse;
 
 // Event emmiter
 var events = require("events");
 var eventEmitter = new events.EventEmitter();
 
 // Db data listing function
-eventEmitter.on("list", (res, x) => {
-    // console.log(x);
-    return x;
-    res.render("listing.ejs", {
-        list: x
-    });
-    console.log("Listing Page loaded");
-});
+async function list(tableName, jsonBody) {
+    // For all passed label:value pair, add to query string
+    var queryString = "";
+    var queryCount = 0;
+    for (var attrib in jsonBody) {
+        if (queryCount != 0) {
+            queryString += "&& "
+        }
+        if (attrib != "query") {
+            queryString += attrib + " like :" + attrib + " ";
+            queryCount++;
+        }
+    }
+    
+    // Query table and insert criteria
+    dbResponse = await reqTable(tableName)
+        .then(table => {
+            return table.select(jsonBody.query);
+        })
+        .then(table => {
+            // Problem is with the following line:
+            // When pass in a variable it does not work
+            return table.where("email like :email")
+            .where("phoneNo like :phoneNo")
+            ;
+        })
+        ;
+
+    // Bind criteria to attributes, loops until all criteria are in
+    for (var attrib in jsonBody) {
+        if (attrib != "query" && attrib != "") {
+            const criteria = await jsonBody[attrib];
+            dbResponse = await dbResponse.bind(attrib, criteria);
+        }
+    }
+
+    // 
+    dbResponse = await dbResponse.execute()
+        .then(output => {
+            return output.fetchAll();
+        })
+        ;
+
+    console.log(dbResponse);
+    return dbResponse;
+}
 
 // Database connection 
 const mysqlx = require('@mysql/xdevapi');
@@ -44,6 +83,8 @@ const appName = "club-man";
 app.use(session({ secure: true, secret: "someKey" }))
     .use(express.json())
     .use(express.static("views"))
+    .use(bodyParser.urlencoded({ extended: true }))
+    .use(bodyParser.json())
 
     .get("/", function (req, res) {
         var now = new Date();
@@ -93,33 +134,24 @@ app.use(session({ secure: true, secret: "someKey" }))
 
     })
 
-    .use(bodyParser.urlencoded({ extended: true }))
-    .use(bodyParser.json())
 
-    .post("/listUsers/", function (req, res) {
-        var dbResponse;
-        reqTable("USER").then(table => {
-            return table.select(req.body.query)
-                .execute();
+    .post("/list/:tableName", function (req, res) {
+        list(req.params.tableName, req.body);
+        // res.redirect("/list");
+    })
+
+    .get("/list", (req, res) => {
+        console.log(dbResponse);
+        res.render("listing.ejs", {
+            list: dbResponse
         })
-            .then(output => {
-                return output.fetchAll();
-            })
-            .then(x => {
-                console.log(x);
-                console.log("Done with selection");
-                dbResponse = eventEmitter.emit("list", res, x)
-            })
-            ;
-            res.render("listing.ejs", {
-                list: dbResponse
-            });
-        
     })
 
     .listen(8080)
     ;
 
+
+// Send required files to server
 app
     .get("/assets/:file", (req, res) => {
         var sendFile = "./assets/" + req.params.file;
