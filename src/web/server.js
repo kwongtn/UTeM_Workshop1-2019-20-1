@@ -11,30 +11,18 @@ var eventEmitter = new events.EventEmitter();
 
 // Db data listing function
 async function list(tableName, jsonBody) {
-    // For all passed label:value pair, add to query string
-    var queryString = "";
-    var queryCount = 0;
-    for (var attrib in jsonBody) {
-        if (queryCount != 0) {
-            queryString += "&& "
-        }
-        if (attrib != "query") {
-            queryString += attrib + " like :" + attrib + " ";
-            queryCount++;
-        }
-    }
-    
     // Query table and insert criteria
     dbResponse = await reqTable(tableName)
         .then(table => {
             return table.select(jsonBody.query);
         })
         .then(table => {
-            // Problem is with the following line:
-            // When pass in a variable it does not work
-            return table.where("email like :email")
-            .where("phoneNo like :phoneNo")
-            ;
+            for (var attrib in jsonBody) {
+                if (attrib != "query") {
+                    table = table.where(attrib + " like :" + attrib);
+                }
+            }
+            return table;
         })
         ;
 
@@ -46,7 +34,7 @@ async function list(tableName, jsonBody) {
         }
     }
 
-    // 
+    // Execute the query and fetch all matched results
     dbResponse = await dbResponse.execute()
         .then(output => {
             return output.fetchAll();
