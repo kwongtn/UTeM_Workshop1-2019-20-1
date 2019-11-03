@@ -49,6 +49,7 @@ async function list(tableName, jsonBody) {
         .then(table => {
             return table.fetchAll();
         })
+        
         ;
 }
 
@@ -81,7 +82,7 @@ app.use(session({ secure: true, secret: "someKey" }))
     .use(bodyParser.urlencoded({ extended: true }))
     .use(bodyParser.json())
 
-    .get("/", function (req, res) {
+    .get("/", (req, res) => {
         var now = new Date();
         res.render("login.ejs", {
             appName: appName,
@@ -89,7 +90,7 @@ app.use(session({ secure: true, secret: "someKey" }))
         });
     })
 
-    .post("/login/", urlEncodedParser, function (req, res) {
+    .post("/login/", urlEncodedParser, (req, res) => {
         var login = req.body.username;
         var pass = req.body.pass;
 
@@ -99,14 +100,14 @@ app.use(session({ secure: true, secret: "someKey" }))
         res.redirect("/home");
     })
 
-    .use("/home", function (req, res) {
+    .use("/home", (req, res) => {
         res.render("home.ejs", {
             appName: appName
         });
     })
 
     //To add entry for search functionality
-    .get("/listUser", function (req, res) {
+    .get("/listUser", (req, res) => {
         var attribList = [
             { "name": "userID", "label": "User ID" },
             { "name": "engName", "label": "English Name" },
