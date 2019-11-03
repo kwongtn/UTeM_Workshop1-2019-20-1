@@ -8,12 +8,18 @@
         <input id="textFocus" type="checkbox" checked>
     </form>
 
-    <p>Select the attributes you want to see:</p>
+    <p>
+        Select the attributes you want to see: <br>
+        Checkbox : Select Attribute to be displayed
+        Radiobox : Select Attribute to sort by
+        Searchbox: Insert statements to search. For now it is "OR" criteria.
+    </p>
     <form id="query" class="query">
 
         <% for (x in attribList){ %>
 
         <input id="<%= attribList[x].name %>" type="checkbox" name="query" value="<%= attribList[x].name %>">
+        <input id="<%= attribList[x].name %>" type="radio" name="order" value="<%= attribList[x].name %>">
         <label for="<%= attribList[x].name %>"><%= attribList[x].label %></label>
         <input type="text" name="<%= attribList[x].name %>" onclick="textFocus('<%= attribList[x].name %>')">
         <br>

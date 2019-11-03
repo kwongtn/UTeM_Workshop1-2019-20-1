@@ -11,38 +11,42 @@ var eventEmitter = new events.EventEmitter();
 
 // Db data listing function
 async function list(tableName, jsonBody) {
-    // Query table and insert criteria
-    dbResponse = await reqTable(tableName)
+   return reqTable(tableName)
+        
+        // Query table
         .then(table => {
             return table.select(jsonBody.query);
         })
+
         .then(table => {
+            // Insert criteria for table
             for (var attrib in jsonBody) {
-                if (attrib != "query") {
+                if (attrib != "query" && attrib != "order") {
                     table = table.where(attrib + " like :" + attrib);
                 }
             }
+            
+            // Bind criteria to attributes
+            for (var attrib in jsonBody) {
+                if (attrib != "query" && attrib != "") {
+                    table = table.bind(attrib, jsonBody[attrib]);
+                }
+            }
+
+            // Set ordering if there is
+            table = table.orderBy(jsonBody.order);
+
             return table;
         })
-        ;
-
-    // Bind criteria to attributes, loops until all criteria are in
-    for (var attrib in jsonBody) {
-        if (attrib != "query" && attrib != "") {
-            const criteria = await jsonBody[attrib];
-            dbResponse = await dbResponse.bind(attrib, criteria);
-        }
-    }
-
-    // Execute the query and fetch all matched results
-    dbResponse = await dbResponse.execute()
-        .then(output => {
-            return output.fetchAll();
+        
+        // Execute the query and fetch all matched results
+        .then(table => {
+            return table.execute();
+        })
+        .then(table => {
+            return table.fetchAll();
         })
         ;
-
-    console.log(dbResponse);
-    return dbResponse;
 }
 
 // Database connection 
@@ -123,8 +127,9 @@ app.use(session({ secure: true, secret: "someKey" }))
     })
 
 
-    .post("/list/:tableName", function (req, res) {
-        list(req.params.tableName, req.body);
+    .post("/list/:tableName", async function (req, res) {
+        var listing = await list(req.params.tableName, req.body);
+        console.log(listing);
         // res.redirect("/list");
     })
 
