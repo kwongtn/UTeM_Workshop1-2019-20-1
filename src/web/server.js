@@ -20,22 +20,25 @@ async function list(tableName, jsonBody) {
 
         .then(table => {
             // Insert criteria for table
+            var queryCount = 0, queryString ="";
             for (var attrib in jsonBody) {
-                if (attrib != "query" && attrib != "order") {
-                    table = table.where(attrib + " like :" + attrib);
+                if (queryCount != 0) {
+                    queryString += " && "
+                }
+                if (attrib != "query" && attrib != "" && attrib != "order") {
+                    queryString += attrib + " like :" + attrib;
+                    queryCount++;
                 }
             }
-            
-            // Bind criteria to attributes
+
+            table.where(queryString);
+
+            // Bind criteria for table
             for (var attrib in jsonBody) {
-                if (attrib != "query" && attrib != "") {
+                if (attrib != "query" && attrib != "" && attrib != "order") {
                     table = table.bind(attrib, jsonBody[attrib]);
                 }
             }
-
-            // Set ordering if there is
-            table = table.orderBy(jsonBody.order);
-
             return table;
         })
         
