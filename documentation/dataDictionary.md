@@ -49,7 +49,10 @@ In this document, we will describe the database and tables used in a tabular for
 | roleName | tinytext         | NO   |     | NULL    |                |
 
 ## USER_ROLE
-
+| Field  | Type             | Null | Key | Default | Extra |
+|--------|------------------|------|-----|---------|-------|
+| roleID | int(10) unsigned | NO   | PRI | NULL    |       |
+| userID | int(10) unsigned | NO   | PRI | NULL    |       |
 
 ## FEEDBACK
 | Field            | Type                | Null | Key | Default           | Extra             |
