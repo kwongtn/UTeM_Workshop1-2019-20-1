@@ -11,10 +11,13 @@ const config = {
 // Database connection 
 const mysqlx = require('@mysql/xdevapi');
 
+// Function to request table.
+// Modularized to enable other functions to request for table for CRUD functions.
 async function reqTable(tableName) {
-    const session = await mysqlx.getSession(config);
-    const table = session.getSchema("CLUB-MAN").getTable(tableName);
-    return table;
+    return mysqlx.getSession(config)
+        .then(session => {
+            return session.getSchema("CLUB-MAN").getTable(tableName.toUpperCase());
+        })
 };
 
 // Db data listing function
