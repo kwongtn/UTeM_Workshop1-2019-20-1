@@ -13,7 +13,7 @@ const mysqlx = require('@mysql/xdevapi');
 
 // Function to request table.
 // Modularized to enable other functions to request for table for CRUD functions.
-async function reqTable(tableName) {
+function reqTable(tableName) {
     return mysqlx.getSession(config)
         .then(session => {
             return session.getSchema("CLUB-MAN").getTable(tableName.toUpperCase());
@@ -41,23 +41,28 @@ module.exports.list = async function (tableName, jsonBody) {
                     queryCount++;
                 }
             }
-
+            console.log("-" + queryString + "-");
             table.where(queryString);
 
             // Bind criteria for table
             for (var attrib in jsonBody) {
                 if (attrib != "query" && attrib != "" && attrib != "order") {
                     table = table.bind(attrib, jsonBody[attrib]);
+                    console.log(attrib + "-" + jsonBody[attrib]);
                 }
+            }
+            
+            return table;
+        })
+        
+        // Insert Order By functionality
+        .then(async table => {
+            if(jsonBody.order){
+                table = await table.orderBy(jsonBody.order);
             }
             return table;
         })
-
-        // Insert Order By functionality
-        .then(table => {
-            return table.orderBy(jsonBody.order);
-        })
-
+        
         // Execute the query and fetch all matched results
         .then(table => {
             return table.execute();
