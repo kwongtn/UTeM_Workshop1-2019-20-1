@@ -29,10 +29,11 @@ app.use(session({ secure: true, secret: "someKey" }))
         var login = req.body.username;
         var pass = req.body.pass;
 
-        console.log("Login: " + req.body.username);
-        console.log("Password: " + req.body.pass);
+        if(db.login(req.body)){
+            res.redirect("/home");
+        }
+        res.redirect("/");
 
-        res.redirect("/home");
     })
 
     .use("/home", (req, res) => {

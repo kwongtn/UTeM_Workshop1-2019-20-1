@@ -65,6 +65,48 @@ module.exports.list = async function (tableName, jsonBody) {
         .then(table => {
             return table.fetchAll();
         })
-
+        
         ;
 }
+
+// Login check
+module.exports.login = async (loginJSON) => {
+    console.log(loginJSON);
+    const pass = loginJSON.pass;
+
+    const useJSON = {
+        query: [
+            "matricNo",
+            "icNo",
+            "custPw"
+        ],
+        "matricNo" : loginJSON.username
+    };
+
+    const result = await this.list("USER", useJSON);
+    console.log(result[0]);
+    console.log(pass);
+    
+    if(result[0][2]){
+        if(result[0][2] == pass){
+            console.log("Password Correct");
+            return true;
+        } else {
+            console.log("Password Wrong");
+            return false;
+        }
+
+    } else if (result[0][1]){
+        if(result[0][1] == pass){
+            console.log("IC Correct");
+            return true;
+        } else {
+            console.log("IC Wrong");
+            return false;
+        }
+
+    } else {
+        console.log("Error");
+    }
+     
+};
