@@ -28,12 +28,12 @@ CREATE TABLE `USER` (
     `email` TINYTEXT NOT NULL,
     `phoneNo` TINYTEXT NOT NULL,
     `facebookID` TINYTEXT,
-    `icNo` CHAR(14) NOT NULL,
+    `icNo` VARCHAR(14) NOT NULL,
     `hostel` TINYTEXT,
     `faculty` TINYTEXT,
     `course` TINYTEXT,
     `hometown` TINYTEXT,
-    `matricNo` CHAR(10) NOT NULL,
+    `matricNo` VARCHAR(10) NOT NULL,
     `custPw` TINYTEXT,
     `signupTime` TIMESTAMP 
         DEFAULT CURRENT_TIMESTAMP 
