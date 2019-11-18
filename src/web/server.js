@@ -70,15 +70,15 @@ app.use(session({ secure: true, secret: "someKey" }))
     })
 
 
-    .post("/list/:tableName/", urlEncodedParser, async (req, res) => {
+    .post("/list/:tableName/", async (req, res) => {
         dbResponse = await db.list(req.params.tableName, req.body);
         console.log(dbResponse);
         // Unsure of reason no redirection is being done
         res.redirect("/listing");
     })
 
-    .use("/listing", (req, res) => {
-        res.render("listing.ejs", {
+    .get("/listing", (req, res) => {
+        res.render("listing_user.ejs", {
             list: dbResponse
         });
     })
@@ -88,9 +88,8 @@ app.use(session({ secure: true, secret: "someKey" }))
 
 
 // Send required files to server
-app
-    .get("/assets/:file", (req, res) => {
-        var sendFile = "./assets/" + req.params.file;
-        console.log(sendFile);
-        res.sendFile(sendFile);
-    });
+app.get("/assets/:file", (req, res) => {
+    var sendFile = "./assets/" + req.params.file;
+    console.log(sendFile);
+    res.sendFile(sendFile);
+});
