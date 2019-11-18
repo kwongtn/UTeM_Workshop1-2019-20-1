@@ -15,13 +15,13 @@
         Searchbox: Insert statements to search by.<br>
     </p>
     <form id="query" class="query">
-
+        <input type="text" name="formAddress" value="/list/USER" hidden>
         <% for (x in attribList){ %>
 
         <input id="<%= attribList[x].name %>" type="checkbox" name="query" value="<%= attribList[x].name %>">
         <input id="<%= attribList[x].name %>" type="radio" name="order" value="<%= attribList[x].name %>">
         <label for="<%= attribList[x].name %>"><%= attribList[x].label %></label>
-        <input type="text" name="<%= attribList[x].name %>" onclick="textFocus('<%= attribList[x].name %>')">
+        <input type="text" name="<%= attribList[x].name %>" onclick="textFocus('<%= attribList[x].name %>')" placeholder="<%= attribList[x].label %>">
         <br>
         <% }; %>
 

@@ -66,10 +66,9 @@ const handleFormSubmit = event => {
 
     // Send JSON to server using POST method
     var xhr = new XMLHttpRequest();
-    var url = "/list/USER/";
+    var url = data.formAddress;
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
-
     xhr.send(JSON.stringify(data));
 
 };

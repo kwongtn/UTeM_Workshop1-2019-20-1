@@ -1,6 +1,14 @@
 "use strict";
 const debug = true;
 
+// JSON data to be ignored during queries
+const ignoreValues = [
+    "query",
+    "",
+    "order",
+    "formAddress"
+]
+
 // 8081 uses x-Protocol, while 8082 uses the old authentication method
 const config = {
     password: 'password',
@@ -37,7 +45,7 @@ module.exports.list = (tableName, jsonBody) => {
                 if (queryCount != 0) {
                     queryString += " && "
                 }
-                if (attrib != "query" && attrib != "" && attrib != "order") {
+                if (!ignoreValues.includes(attrib)) {
                     queryString += attrib + " like :" + attrib;
                     queryCount++;
                 }
@@ -47,7 +55,7 @@ module.exports.list = (tableName, jsonBody) => {
 
             // Bind criteria for table
             for (var attrib in jsonBody) {
-                if (attrib != "query" && attrib != "" && attrib != "order") {
+                if (!ignoreValues.includes(attrib)) {
                     table = table.bind(attrib, jsonBody[attrib]);
                     console.log(attrib + "-" + jsonBody[attrib]);
                 }
