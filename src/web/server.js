@@ -6,6 +6,8 @@ var bodyParser = require("body-parser");
 var urlEncodedParser = bodyParser.urlencoded({ extended: false });
 var dbResponse;
 
+const debugMode = true;
+
 // Application 
 var app = express();
 
@@ -25,14 +27,16 @@ app.use(session({ secure: true, secret: "someKey" }))
         });
     })
 
-    .post("/login/", urlEncodedParser, (req, res) => {
-        var login = req.body.username;
-        var pass = req.body.pass;
-
-        if(db.login(req.body)){
+    .post("/login/", urlEncodedParser, async (req, res) => {
+        const loginOrNot = await db.login(req.body);
+        console.log(loginOrNot);
+        if (loginOrNot) {
             res.redirect("/home");
+
+        } else {
+            res.redirect("/");
+
         }
-        res.redirect("/");
 
     })
 
@@ -73,11 +77,10 @@ app.use(session({ secure: true, secret: "someKey" }))
         res.redirect("/listing");
     })
 
-    .get("/list", (req, res) => {
-        console.log(dbResponse);
+    .use("/listing", (req, res) => {
         res.render("listing.ejs", {
             list: dbResponse
-        })
+        });
     })
 
     .listen(8080)

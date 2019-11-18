@@ -1,4 +1,5 @@
 "use strict";
+const debug = true;
 
 // 8081 uses x-Protocol, while 8082 uses the old authentication method
 const config = {
@@ -21,7 +22,7 @@ function reqTable(tableName) {
 };
 
 // Db data listing function
-module.exports.list = async function (tableName, jsonBody) {
+module.exports.list = (tableName, jsonBody) => {
     return reqTable(tableName)
 
         // Query table
@@ -51,18 +52,18 @@ module.exports.list = async function (tableName, jsonBody) {
                     console.log(attrib + "-" + jsonBody[attrib]);
                 }
             }
-            
+
             return table;
         })
-        
+
         // Insert Order By functionality
         .then(async table => {
-            if(jsonBody.order){
+            if (jsonBody.order) {
                 table = await table.orderBy(jsonBody.order);
             }
             return table;
         })
-        
+
         // Execute the query and fetch all matched results
         .then(table => {
             return table.execute();
@@ -70,12 +71,13 @@ module.exports.list = async function (tableName, jsonBody) {
         .then(table => {
             return table.fetchAll();
         })
-        
+
         ;
 }
 
 // Login check
 module.exports.login = async (loginJSON) => {
+    console.log("Showing login.json");
     console.log(loginJSON);
     const pass = loginJSON.pass;
 
@@ -85,33 +87,42 @@ module.exports.login = async (loginJSON) => {
             "icNo",
             "custPw"
         ],
-        "matricNo" : loginJSON.username
+        "matricNo": loginJSON.username
     };
 
-    const result = await this.list("USER", useJSON);
-    console.log(result[0]);
-    console.log(pass);
-    
-    if(result[0][2]){
-        if(result[0][2] == pass){
-            console.log("Password Correct");
-            return true;
-        } else {
-            console.log("Password Wrong");
-            return false;
-        }
+    console.log(useJSON);
 
-    } else if (result[0][1]){
-        if(result[0][1] == pass){
-            console.log("IC Correct");
-            return true;
+    const result = await this.list("USER", useJSON);
+    if (result.toString() != ""){
+        if (result[0][2]) {
+            if (result[0][2] == pass) {
+                debug ? console.log("Password Correct") : 0;
+                return true;
+            } else {
+                debug ? console.log("Password Wrong") : 0;
+                return false;
+            }
+    
+        } else if (result[0][1]) {
+            if (result[0][1] == pass) {
+                debug ? console.log("IC Correct") : 0;
+                return true;
+            } else {
+                debug ? console.log("IC Wrong") : 0;
+                return false;
+            }
+    
         } else {
-            console.log("IC Wrong");
+            console.log("Error");
             return false;
         }
 
     } else {
-        console.log("Error");
+        console.log("Wrong login.");
+        return false;
     }
-     
+
+
+
+
 };
