@@ -138,4 +138,36 @@ module.exports.login = async (loginJSON) => {
 // Db data adding function
 module.exports.addData = (tableName, jsonBody) => {
     
+    // Add data fields to array
+    var dataAddArray = [];
+    for(let attrib in jsonBody){
+        if (!ignoreValues.includes(attrib)){
+            dataAddArray.push(attrib);
+        }
+    }
+
+    // Add data values to array
+    var valueAddArray = [];
+    for(let attrib in jsonBody){
+        if (!ignoreValues.includes(attrib)){
+            valueAddArray.push(jsonBody[attrib]);
+        }
+    }
+
+    
+    // To program what wil happen if dbms rejects data.
+    reqTable(tableName)
+    .then(table => {
+        return table.insert(dataAddArray);
+    })
+    .then(table => {
+        return table.values(valueAddArray);
+    })
+    .then(table => {
+        table.execute();
+    })
+    
+    .catch()
+    ;
+
 }

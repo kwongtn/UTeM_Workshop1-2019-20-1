@@ -106,6 +106,7 @@ app.use(session({ secure: true, secret: "someKey" }))
 
     .post("/addData/:tableName/", (req, res) => {
         console.log(req.params.tableName, req.body);
+        db.addData(req.params.tableName, req.body);
     })
 
     .listen(8080)
