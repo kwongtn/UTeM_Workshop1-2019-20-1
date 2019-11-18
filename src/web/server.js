@@ -83,6 +83,31 @@ app.use(session({ secure: true, secret: "someKey" }))
         });
     })
 
+    .get("/registration", (req, res) => {
+        var attribList = [
+            { "name": "engName", "label": "English Name", "required": true },
+            // Due to CJK Problems, we will ignore chinese names for the time being.
+            // { "name": "chineseName", "label": "Chinese Name", "required": true },
+            { "name": "email", "label": "e-mail", "required": true },
+            { "name": "phoneNo", "label": "Phone Number", "required": true },
+            { "name": "facebookID", "label": "Facebook ID", "required": false },
+            { "name": "icNo", "label": "IC Number", "required": true },
+            { "name": "hostel", "label": "Hostel", "required": false },
+            { "name": "faculty", "label": "Faculty", "required": false },
+            { "name": "course", "label": "Course", "required": false },
+            { "name": "hometown", "label": "Hometown", "required": false },
+            { "name": "matricNo", "label": "Matric No", "required": true },
+            { "name": "custPw", "label": "Custom Password", "required": false }
+        ];
+        res.render("singleRegistration.ejs", {
+            attribList: attribList
+        });
+    })
+
+    .post("/addData/:tableName/", (req, res) => {
+        console.log(req.params.tableName, req.body);
+    })
+
     .listen(8080)
     ;
 

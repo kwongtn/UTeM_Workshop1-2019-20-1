@@ -134,3 +134,8 @@ module.exports.login = async (loginJSON) => {
 
 
 };
+
+// Db data adding function
+module.exports.addData = (tableName, jsonBody) => {
+    
+}
