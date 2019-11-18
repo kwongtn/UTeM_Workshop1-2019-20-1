@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User List Page</title>
+</head>
+
+<body>
+    <table>
+        <% list.forEach((element) => { %>
+        <tr>
+            <% element.forEach((i) => { %>
+            <td>
+                <%= i %>
+            </td>
+            <% }); %>
+        </tr>
+        <% }); %>
+    </table>
+</body>
+
+
+</html>

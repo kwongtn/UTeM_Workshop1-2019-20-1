@@ -5,5 +5,8 @@ FROM mySQL:latest
 LABEL Maintainer="KwongTN <tungnan5636@gmail.com>"
 
 ## Set Timezone = Asia/Kuala_Lumpur
-RUN echo "Asia/Kuala_Lumpur" > /etc/timezone
+RUN unlink /etc/localtime
+RUN ln -s /usr/share/zoneinfo/Asia/Kuala_Lumpur /etc/localtime
 
+## Expose port 33060 for 
+EXPOSE 3306 33060

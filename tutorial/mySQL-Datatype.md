@@ -74,7 +74,7 @@ __Date, time function comparisons__
 - TIME ( [fraction] );
 - Stores HH:MM:SS[.fraction(6)]
 - Ranges -838:59:59 to 838:59:59
-- When insertion, allow for 'HH:MM:SS', 'HHMMSS', 'MMSS', 'SS', 'D HH:MM:SS', 'HH:MM', 'D HH:MM', 'D HH' or 'SS' format
+- When insertion, allow for 'HH:MM:SS', 'HHMMSS', 'MMSS', 'SS', 'D HH:MM:SS', 'HH:MM', 'D HH:MM' or 'D HH' format
 
 ### **DATETIME**
 - Stores YYYY-MM-DD HH:MM:SS[.fraction(6)]
