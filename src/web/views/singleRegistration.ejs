@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Single User Registration</title>
+</head>
+
+<body>
+    <h1>Single User Registration</h1>
+
+    <div style="text-align: left">
+        <form method="post" class="query">
+            <input type="text" name="formAddress" value="/addData/USER/" hidden>
+            <% for (x in attribList){ %>
+                <label for="<%= attribList[x].name %>"><%= attribList[x].label %></label>
+                <input type="text" name="<%= attribList[x].name %>" <% if(attribList[x].required){ %>
+                    <%= "required" %>
+                <% } %>>
+                <br>
+                <% }; %>
+            
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+    <p>* By default, username is Matric No and password is IC, unless custom password is specified.</p>
+
+    <p id="formData"></p>
+
+    <script type="text/javascript" src="assets/formProcessor.js"></script>
+</body>
+
+</html>
