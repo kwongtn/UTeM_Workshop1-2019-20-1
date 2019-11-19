@@ -4,7 +4,7 @@
         "@mysql/xdevapi": "^8.0.18",
         "body-parser": ">=1.10.1",
         "cookie-session": ">=1.1.0",
-        "ejs": ">=2.1.4",
+        "ejs": "^2.7.3",
         "express": ">=4.11.0",
         "material-components-web": "^3.2.0"
     },
