@@ -47,7 +47,7 @@ app.use(session({ secure: true, secret: "someKey" }))
     })
 
     //To add entry for search functionality
-    .get("/listUser", (req, res) => {
+    .get("/list/users", (req, res) => {
         var attribList = [
             { "name": "userID", "label": "User ID" },
             { "name": "engName", "label": "English Name" },
