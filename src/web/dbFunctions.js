@@ -173,4 +173,19 @@ module.exports.addData = (tableName, jsonBody) => {
 
 // Checks if data with respect to constraint exists.
 // Returns whether data exits (boolean)
-}
+module.exports.checkIfExists = (tableName, jsonBody) => {
+    return this.list(tableName, jsonBody).then(arr => {
+        return arr.toString();
+    })
+    .then(str => {
+        if(str != ""){
+            console.log("Returning true", true);
+            return true;
+        } else {
+            console.log("Returning false", false);
+            return false;
+        }
+    })
+
+};
+
