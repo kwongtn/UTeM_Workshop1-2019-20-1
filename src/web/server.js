@@ -104,6 +104,12 @@ app.use(session({ secure: true, secret: "someKey" }))
         });
     })
 
+    .get("/user/:userID", (req, res) => {
+        res.render("userProfile.ejs", {
+
+        });
+    })
+
     .post("/addData/:tableName/", (req, res) => {
         console.log(req.params.tableName, req.body);
         db.addData(req.params.tableName, req.body);
