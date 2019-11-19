@@ -30,6 +30,7 @@ function reqTable(tableName) {
 };
 
 // Db data listing function
+// Returns table as array
 module.exports.list = (tableName, jsonBody) => {
     return reqTable(tableName)
 
@@ -81,20 +82,17 @@ module.exports.list = (tableName, jsonBody) => {
         })
 
         ;
-}
+};
 
 // Login check
+// Returns if login accepted (boolean)
 module.exports.login = async (loginJSON) => {
     console.log("Showing login.json");
     console.log(loginJSON);
     const pass = loginJSON.pass;
 
     const useJSON = {
-        query: [
-            "matricNo",
-            "icNo",
-            "custPw"
-        ],
+        query: ["matricNo", "icNo", "custPw"],
         "matricNo": loginJSON.username
     };
 
@@ -136,6 +134,7 @@ module.exports.login = async (loginJSON) => {
 };
 
 // Db data adding function
+// No returns
 module.exports.addData = (tableName, jsonBody) => {
     
     // Add data fields to array
@@ -170,4 +169,8 @@ module.exports.addData = (tableName, jsonBody) => {
     .catch()
     ;
 
+};
+
+// Checks if data with respect to constraint exists.
+// Returns whether data exits (boolean)
 }

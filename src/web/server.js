@@ -113,7 +113,7 @@ app.use(session({ secure: true, secret: "someKey" }))
     ;
 
 
-// Send required files to server
+// Send required files from server
 app.get("/assets/:file", (req, res) => {
     var sendFile = "./assets/" + req.params.file;
     console.log(sendFile);
