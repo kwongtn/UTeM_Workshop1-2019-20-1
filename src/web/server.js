@@ -153,3 +153,8 @@ app.get("/assets/:file", (req, res) => {
     console.log(sendFile);
     res.sendFile(sendFile);
 });
+
+// 404 
+app.get("*", (req, res) => {
+    res.render("404.ejs");
+});
