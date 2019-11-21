@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <a href="/home">Back to home</a>
+
+    <form id="query" class="query">
+        <input type="text" name="formAddress" value="/update/<%= userID %>" hidden>
+        <% 
+        var y = 0;
+        for (x in attribList){ 
+            %>
+
+        <label for="<%= attribList[x].name %>"><%= attribList[x].label %></label>
+        <input type="text" name="<%= attribList[x].name %>" onclick="textFocus('<%= attribList[x].name %>')" placeholder="<%= attribList[x].label %>" value="<%= profile[y] %>">
+        <br>
+        <% 
+        y++;
+        if(y == profile.length) {
+            break;
+        }   
+    }; 
+            %>
+
+        <input type="submit">
+
+    </form>
+</body>
+
+</html>

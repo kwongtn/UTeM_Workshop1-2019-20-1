@@ -104,9 +104,37 @@ app.use(session({ secure: true, secret: "someKey" }))
         });
     })
 
-    .get("/user/:userID", (req, res) => {
-        res.render("userProfile.ejs", {
+    .get("/user/:userID", async (req, res) => {
+        console.log(req.params.userID);
+        var jsonBody = {
+            "query":["userID", "engName", "email", "phoneNo", "facebookID", "icNo", "matricNo", "hostel", "faculty", "course", "hometown"],
+            "userID": req.params.userID
+        };
 
+        var attribList = [
+            { "name": "userID", "label": "userID", "required": true },
+            { "name": "engName", "label": "English Name", "required": true },
+            // Due to CJK Problems, we will ignore chinese names for the time being.
+            // { "name": "chineseName", "label": "Chinese Name", "required": true },
+            { "name": "email", "label": "e-mail", "required": true },
+            { "name": "phoneNo", "label": "Phone Number", "required": true },
+            { "name": "facebookID", "label": "Facebook ID", "required": false },
+            { "name": "matricNo", "label": "Matric No", "required": true },
+            { "name": "icNo", "label": "IC Number", "required": true },
+            { "name": "hostel", "label": "Hostel", "required": false },
+            { "name": "faculty", "label": "Faculty", "required": false },
+            { "name": "course", "label": "Course", "required": false },
+            { "name": "hometown", "label": "Hometown", "required": false } //,
+            // { "name": "custPw", "label": "Custom Password", "required": false }
+        ];
+
+        const dbResponse = await db.list("USER", jsonBody);
+        console.log(dbResponse);
+
+        res.render("userProfile.ejs", {
+            profile: dbResponse[0],
+            userID: req.params.userID,
+            attribList: attribList
         });
     })
 
